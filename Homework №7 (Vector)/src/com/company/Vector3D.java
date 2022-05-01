@@ -6,8 +6,6 @@ import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
 public class Vector3D extends Vector2D{
-    private int x;
-    private int y;
     private int z;
     private final String capacity = "This vector for three-dimensional coordinate system";
 
@@ -18,20 +16,20 @@ public class Vector3D extends Vector2D{
 
     @Override
     public double findVectorLength() {
-        double length = sqrt(pow(this.x, 2) + pow(this.y, 2) + pow(this.z,2));
+        double length = sqrt(pow(super.getX(), 2) + pow(super.getY(), 2) + pow(this.z,2));
         return length;
     }
 
     public int findScalarProduct(Vector3D vector) {
-        int scalarProduct = this.x + vector.getX() + this.y + vector.getY() + this.z + vector.getZ();
+        int scalarProduct = super.getX() + vector.getX() + super.getY() + vector.getY() + this.z + vector.getZ();
         return scalarProduct;
     }
 
     public Vector3D vectorsSum(Vector3D vector) {
         Vector3D resultedVector = new Vector3D(0, 0,0);
 
-        resultedVector.setX(this.x + vector.getX());
-        resultedVector.setY(this.y + vector.getY());
+        resultedVector.setX(super.getX() + vector.getX());
+        resultedVector.setY(super.getY() + vector.getY());
         resultedVector.setZ(this.z + vector.getZ());
 
         return resultedVector;
@@ -40,11 +38,11 @@ public class Vector3D extends Vector2D{
     public Vector3D vectorsDifference(Vector3D vector) {
         Vector3D resultedVector = new Vector3D(0, 0,0);
 
-        if (this.x > vector.getX()) resultedVector.setX(this.x - vector.getX());
-        else resultedVector.setX(vector.getX() - this.x);
+        if (super.getX() > vector.getX()) resultedVector.setX(super.getX() - vector.getX());
+        else resultedVector.setX(vector.getX() -super.getX());
 
-        if (this.y > vector.getY()) resultedVector.setY(this.y - vector.getY());
-        else resultedVector.setY(vector.getY() - this.y);
+        if (super.getY() > vector.getY()) resultedVector.setY(super.getY() - vector.getY());
+        else resultedVector.setY(vector.getY() -super.getY());
 
         if (this.z > vector.getZ()) resultedVector.setZ(this.z - vector.getZ());
         else resultedVector.setZ(vector.getZ() - this.z);
@@ -53,10 +51,10 @@ public class Vector3D extends Vector2D{
     }
 
     public boolean compareVectors(Vector3D vector) {
-        if (this.x > vector.getX() && this.y > vector.getY() && this.z > vector.getZ()) {
+        if (super.getX() > vector.getX() && super.getY() > vector.getY() && this.z > vector.getZ()) {
             System.out.println("First vector bigger than second");
             return true;
-        } else if (this.x < vector.getX() && this.y < vector.getY()&& this.z < vector.getZ()) {
+        } else if (super.getX() < vector.getX() && super.getY() < vector.getY()&& this.z < vector.getZ()) {
             System.out.println("First vector less than second");
             return false;
         } else {
@@ -84,7 +82,7 @@ public class Vector3D extends Vector2D{
 
     @Override
     public void displayVector() {
-        System.out.printf("[X = %d, Y = %d, Z = %d]\n",this.x,this.y,this.z);
+        System.out.printf("[X = %d, Y = %d, Z = %d]\n",super.getX(),super.getY(),this.z);
         System.out.println(capacity);
     }
 
