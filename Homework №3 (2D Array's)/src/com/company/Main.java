@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
+    task_3();
     }
 
     public static void task_1() {
@@ -72,13 +72,13 @@ public class Main {
 
         boolean isEqual = false;
 
-        int[][] resultedMatrix = new int[amountOfString][amountOfColumns];
+        int[][] resultedMatrix = new int[firstArray.length][secondArray[0].length];
 
         if (amountOfString == amountOfColumns)
 
-            for (int i = 0; i < amountOfString; i++) {
-                for (int j = 0; j < amountOfColumns; j++) {
-                    for (int k = 0; k < amountOfString; k++) {
+            for (int i = 0; i < resultedMatrix.length; i++) {
+                for (int j = 0; j < resultedMatrix[i].length; j++) {
+                    for (int k = 0; k < resultedMatrix.length; k++) {
                         resultedMatrix[i][j] += firstArray[i][k] * secondArray[k][j];
                     }
                 }

@@ -5,12 +5,12 @@ import java.util.Scanner;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
-public class Vector {
+public class Vector2D {
     private int x;
     private int y;
-    private final String  capacity ="This vector for "
+    private final String capacity ="This vector for two-dimensional coordinate system";
 
-    public Vector(int x, int y) {
+    public Vector2D(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -20,13 +20,13 @@ public class Vector {
         return length;
     }
 
-    public int findScalarProduct(Vector vector) {
+    public int findScalarProduct(Vector2D vector) {
         int scalarProduct = this.x + vector.getX() + this.y + vector.getY();
         return scalarProduct;
     }
 
-    public Vector vectorsSum(Vector vector) {
-        Vector resultedVector = new Vector(0, 0);
+    public Vector2D vectorsSum(Vector2D vector) {
+        Vector2D resultedVector = new Vector2D(0, 0);
 
         resultedVector.setX(this.x + vector.getX());
         resultedVector.setY(this.y + vector.getY());
@@ -34,8 +34,8 @@ public class Vector {
         return resultedVector;
     }
 
-    public Vector vectorsDifference(Vector vector) {
-        Vector resultedVector = new Vector(0, 0);
+    public Vector2D vectorsDifference(Vector2D vector) {
+        Vector2D resultedVector = new Vector2D(0, 0);
 
         if (this.x > vector.getX()) resultedVector.setX(this.x - vector.getX());
         else resultedVector.setX(vector.getX() - this.x);
@@ -46,8 +46,8 @@ public class Vector {
         return resultedVector;
     }
 
-    public static Vector[] createArrayOfVectors(int amount) {
-        Vector[] vectors = new Vector[amount];
+    public static Vector2D[] createArrayOfVectors(int amount) {
+        Vector2D[] vectors = new Vector2D[amount];
         Scanner in = new Scanner(System.in);
 
         for (int i = 0; i < vectors.length; i++) {
@@ -56,12 +56,12 @@ public class Vector {
             System.out.println("Enter y: ");
             int y = in.nextInt();
             System.out.println();
-            vectors[i] = new Vector(x, y);
+            vectors[i] = new Vector2D(x, y);
         }
         return vectors;
     }
 
-    public boolean compareVectors(Vector vector) {
+    public boolean compareVectors(Vector2D vector) {
         if (this.x > vector.getX() && this.y > vector.getY()) {
             System.out.println("First vector bigger than second");
             return true;
@@ -77,6 +77,7 @@ public class Vector {
     public void displayVector()
     {
         System.out.printf("[X = %d Y = %d]\n",this.x,this.y);
+        System.out.println(capacity);
     }
 
     public void setX(int x) {
