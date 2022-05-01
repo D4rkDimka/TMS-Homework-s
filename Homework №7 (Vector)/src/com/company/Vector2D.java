@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
-public class Vector2D {
+public  class Vector2D {
     private int x;
     private int y;
     private final String capacity ="This vector for two-dimensional coordinate system";

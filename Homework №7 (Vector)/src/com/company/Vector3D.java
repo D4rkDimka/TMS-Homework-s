@@ -9,10 +9,10 @@ public class Vector3D extends Vector2D{
     private int x;
     private int y;
     private int z;
-    private final String capacity ="This vector for three-dimensional coordinate system";
+    private final String capacity = "This vector for three-dimensional coordinate system";
 
-    public Vector3D(int x, int y,int z) {
-        super(x, y);
+    public Vector3D(int x, int y, int z) {
+        super(x,y);
         this.z = z;
     }
 
@@ -32,7 +32,7 @@ public class Vector3D extends Vector2D{
 
         resultedVector.setX(this.x + vector.getX());
         resultedVector.setY(this.y + vector.getY());
-        resultedVector.setY(this.z + vector.getZ());
+        resultedVector.setZ(this.z + vector.getZ());
 
         return resultedVector;
     }
