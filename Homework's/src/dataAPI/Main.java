@@ -2,6 +2,7 @@ package dataAPI;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -50,9 +51,10 @@ public class Main {
         };
 
         Consumer<String> processExit = str -> System.out.println("End of program");
+
         while (isWorking) {
-            System.out.print("Enter your string: ");
-            String str = in.nextLine();
+            showMenu();
+            String str = in.nextLine().toLowerCase(Locale.ROOT);
 
             if (str.equals("1")) {
                 System.out.print("Enter string to reverse: ");
@@ -65,9 +67,18 @@ public class Main {
 
                 handleInput.handleUserIntInput(number, isValidNumber, process2);
             } else if (str.equals("exit")) {
+                System.out.println("Shut down of the program");
                 isWorking = false;
             }
         }
 
+    }
+
+    public static void showMenu()
+    {
+        System.out.print("1) Reverse string" +
+                "\n2) Find factorial" +
+                "\nExit" +
+                "\n\nYour choice>> ");
     }
 }
