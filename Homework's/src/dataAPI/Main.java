@@ -16,8 +16,12 @@ public class Main {
         dataService.displayDayByDate(LocalDate.now(), LocalTime.now());
         dataService.displayDateAfterPeriod(7, LocalDate.now());
 
-        Predicate<String> isValid = str -> str.length() != 0;
-        Predicate<Integer> isValidNumber = number -> number >= 0;
+        Predicate<String> isValid = str -> {
+            return str.length() != 0;
+        };
+        Predicate<Integer> isValidNumber = number -> {
+            return number >= 0;
+        };
 
         Consumer<String> process1 = str -> {
             System.out.print("Reverse of string " + str + " : ");
